@@ -19,5 +19,13 @@ class  TestCredentials(unittest.TestCase):
         self.assertEqual(self.new_credentials.app_username,"t.ngugi")
         self.assertEqual(self.new_credentials.app_password,"123password")
 
+    def test_save_credentials(self):
+        """
+        test case to check if the objects are being saved in the credentials_list
+        """
+        self.new_credentials.save_credentials()
+        self.assertEqual(len(Credentials.credentials_list),1)
+
+
 if __name__=='__main__':
     unittest.main()
