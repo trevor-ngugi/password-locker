@@ -89,6 +89,13 @@ class  TestCredentials(unittest.TestCase):
         credentials_exist=Credentials.credential_exist("t.ngugi")
         self.assertTrue(credentials_exist)
 
+    def test_display_credentials(self):
+        """
+        test to show the credentials to the user
+        """
+        
+        self.assertEqual(Credentials.credential_display(),Credentials.credentials_list)
+
 
         
 
