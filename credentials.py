@@ -55,4 +55,16 @@ class Credentials:
                 return account
 
     @classmethod
-    def 
+    def credential_exist(cls,username):
+        """
+        method that takes in user name exist from the contact lsit
+        args:
+            username:takes in the username to search if it exist
+        returns:
+            bolean :returns the credentials if exists
+        """
+        for account in cls.credentials_list:
+            if account.app_username == username :
+                return True
+        return False
+
