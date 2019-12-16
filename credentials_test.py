@@ -78,6 +78,17 @@ class  TestCredentials(unittest.TestCase):
         found_account=Credentials.find_account("facebook")
         self.assertEqual(found_account.app_username,test_credential.app_username)
 
+    def test_credentials_exist(self):
+        """
+        test to check if a  credential exist
+        """
+        self.new_credentials.save_credentials()
+        test_credential=Credentials("facebook","t.ngugi","321password")
+        test_credential.save_credentials()
+
+        credentials_exist=Credentials.credential_exist("t.ngugi")
+        self.assertTrue(credentials_exist)
+
 
         
 

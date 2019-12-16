@@ -53,3 +53,6 @@ class Credentials:
         for account in cls.credentials_list:
             if account.social_app_name == appName :
                 return account
+
+    @classmethod
+    def 
