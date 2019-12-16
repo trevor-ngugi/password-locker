@@ -45,3 +45,6 @@ def display_credentials():
     function that returns a list of credentials listed
     """
     return Credentials.credential_display()
+
+def authenticate_user(username,password):
+    return User.user_auth(username,password)

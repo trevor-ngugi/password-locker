@@ -26,6 +26,15 @@ class TestUser(unittest.TestCase):
         """
         self.new_user.save_login()
         self.assertEqual(len(User.user_list,),1)
+
+    def test_user_auth(self):
+        """
+        test_user_auth tests case to authenticate the user
+        """
+        self.new_user.save_login()
+        test_user=User("t@gmail.com","trevor","t.ngugi","321password")
+        test_user.save_login()
+        self.assertTrue(self.new_user.user_auth("t.ngugi","321password"))
     
 
 if __name__ == '__main__':

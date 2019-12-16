@@ -16,3 +16,17 @@ class User:
         """
         User.user_list.append(self)
 
+    @classmethod
+    def user_auth(cls,name,pin):
+        """
+        This method returns a boolean True if the username and pin inputted
+        matches those of a user in the user_list
+        """
+        for user in cls.user_list:
+            if user.username == name and user.password == pin:
+                return True
+        return False
+
+if __name__ == "__main__":
+    unittest.main()
+
