@@ -52,9 +52,22 @@ class  TestCredentials(unittest.TestCase):
         test_credential.delete_credential()
         self.assertEqual(len(Credentials.credentials_list),1)
 
-    def test_find_social_by_app_name_and_username(self):
+    # def test_find_social_by_app_name_and_username(self):
+    #     """
+    #     test to check if we can find app name and username and display their passwords
+    #     """
+    #     self.new_credentials.save_credentials()
+    #     test_credential=Credentials("facebook","t.ngugi","321password")
+    #     test_credential.save_credentials()
+    #     # test_credential2=Credentials("facebook","trevor.ngugi","322password")
+    #     # test_credential2.save_credentials()
+
+    #     found_account=Credentials.find_account("facebook","t.ngugi")
+    #     self.assertEqual(found_account.app_username,test_credential.app_username)
+
+    def test_find_social_by_app_name(self):
         """
-        test to check if we can find app name and username and display their passwords
+        test to check if we can find app name and display their passwords
         """
         self.new_credentials.save_credentials()
         test_credential=Credentials("facebook","t.ngugi","321password")
@@ -62,8 +75,9 @@ class  TestCredentials(unittest.TestCase):
         test_credential2=Credentials("facebook","trevor.ngugi","322password")
         test_credential2.save_credentials()
 
-        found_account=Credentials.find_account("facebook","t.ngugi")
-        self.assertEqual(found_account.app_password,test_credential.app_password)
+        found_account=Credentials.find_account("facebook")
+        self.assertEqual(found_account.app_username,test_credential.app_username)
+
 
         
 

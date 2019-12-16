@@ -22,3 +22,34 @@ class Credentials:
         """
         Credentials.credentials_list.remove(self)
         
+    # @classmethod
+    # def find_account(cls,appName,appUsername):
+    #     """
+    #     method that takes in app name and username and returns app name and username if matched
+        
+    #     args:
+    #         app_name:takes in the app name to search name
+    #         app_username:takes in the username of to sarch for
+
+    #     returns:
+    #         the account if the app username and app name if matched
+    #     """
+    #     for account in cls.credentials_list:
+    #         if account.social_app_name and account.app_username==appName and appUsername:
+    #             return account
+
+    @classmethod
+    def find_account(cls,appName):
+        """
+        method that takes in app name  and returns app name if matched
+        
+        args:
+            app_name:takes in the app name to search name
+            
+
+        returns:
+            the account if the app username if matched
+        """
+        for account in cls.credentials_list:
+            if account.social_app_name == appName :
+                return account
