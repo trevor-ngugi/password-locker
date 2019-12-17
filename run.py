@@ -49,4 +49,14 @@ def display_credentials():
 def authenticate_user(username,password):
     return User.user_auth(username,password)
 
+def generate_password(length):
+    """
+    Function which generates a random password
+    Args:
+        the desired password length
+    """
+    return Credential.generate_password(length)
+
+def main():
+    print("hey there, welcome to password locker  ,we  can save your passwords safely for all your accounts and also generate new ones  but please first login ")
     
