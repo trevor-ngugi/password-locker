@@ -9,6 +9,12 @@ def create_login(email,name,username,password)):
     new_user=User(email,name,username,password)
     return new_user
 
+def save_login(user):
+    """
+    Function to save user login details
+    """
+    user.save_login()
+
 def create_existing_credentials(social_app_name ,app_username , app_password):
     """
     function to create existing credentials accounts 
@@ -59,4 +65,48 @@ def generate_password(length):
 
 def main():
     print("hey there, welcome to password locker  ,we  can save your passwords safely for all your accounts and also generate new ones  but please first login ")
-    
+
+    while True:
+        cprint(
+            """
+        Use the following short codes to manage your account 
+            'lg' - Login 
+            'xx' - Close app
+            """)
+        print("What would you like to do?")
+        shortCode = input().lower()
+         if shortCode == "lg":
+            print("Do you have an account? Y or N")
+            decision = input().lower()
+
+            if decision.startswith("n"):
+                email=input("enter your email")
+                name=input("enter your name")
+                username = input("Enter your username: ")
+                password = input("Enter your password: ")#can use get pass method to show its a password is being entered
+               
+                print("\n")
+                print("CONGRATULATIONS, YOUR ACCOUNT HAS BEEN CREATED")
+                print("Sign into your new account")
+                sign_in_name = input("Enter your username: ")
+                sign_in_pin = input("Enter your pin: ")#get pass
+                save_login(create_login(email,name,username,password))
+                if authenticate_user(sign_in_name,sign_in_pin):
+                    
+                    print("SUCCESSFULLY SIGNED IN")  
+                    print("\n")
+                    pass
+                else:
+                    print("Oops, you entered the wrong username/pin, we have to do this again :(")
+                    print("\n")
+            else:
+                sign_in_name = input("Enter your username: ")
+                sign_in_pin = getpass("Enter your pin: ")
+                if authenticate_user(sign_in_name,sign_in_pin):
+                    
+                    print("SUCCESSFULLY SIGNED IN")  
+                    print("\n")
+                    pass
+                else:
+                    print("Oops, you entered the wrong username/pin, we have to do this again :(")
+                    print("\n")
