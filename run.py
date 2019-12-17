@@ -61,13 +61,13 @@ def generate_password(length):
     Args:
         the desired password length
     """
-    return Credential.generate_password(length)
+    return Credentials.generate_password(length)
 
 def main():
     print("hey there, welcome to password locker  ,we  can save your passwords safely for all your accounts and also generate new ones  but please first login ")
 
     while True:
-        cprint(
+        print(
             """
         Use the following short codes to manage your account 
             'lg' - Login 
@@ -101,7 +101,7 @@ def main():
                     print("\n")
             else:
                 sign_in_name = input("Enter your username: ")
-                sign_in_pin = getpass("Enter your pin: ")
+                sign_in_pin = input("Enter your pin: ")
                 if authenticate_user(sign_in_name,sign_in_pin):
                     
                     print("SUCCESSFULLY SIGNED IN")  
@@ -162,7 +162,7 @@ def main():
             Username --- {credentials.app_username}                                
             Password --- {credentials.app_password}               
     --------------------------------------------------
-                                """,
+                                """
                                 )
                                 print('\n')
                         else:
