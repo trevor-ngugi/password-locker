@@ -171,3 +171,32 @@ def main():
                             print("_"*50)
                             print('\n')
 
+                    elif key_word == 'fc':
+                        print("Enter the platform you want to search for")
+                        print("\n")
+                        platform_search = input()
+                        if check_credential_exist(platform_search):
+                            search_credential = find_credential(platform_search)
+                            print(
+                                f"""
+    -------------------------------------------------------
+        Platform --- {search_credential.social_app_name}               
+        Username --- {search_credential.app_username}                               
+        Password --- {search_credential.app_password}               
+    -------------------------------------------------------
+                                """)
+                            print("_"*50)
+                        else:
+                            print("The credential does not exist")
+
+                    elif key_word == "dl":
+                        print("Enter the platform whose credentials you'd like to delete")
+                        platform_delete = input()
+                        if check_existing_credential(platform_delete):
+                            platform_creds = find_credential(platform_delete)
+                            delete_credential(platform_creds)
+                            print(f"CREDENTIALS FOR {platform_creds.app_username} ")
+                        else:
+                            print("The credential does not exist") 
+                    
+
