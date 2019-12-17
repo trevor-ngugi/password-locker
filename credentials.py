@@ -1,3 +1,6 @@
+import random
+import string
+
 class Credentials:
     """
     class that generates  social app name,username,and password properties
@@ -74,4 +77,15 @@ class Credentials:
         method that returns credential list
         """
         return cls.credentials_list
+
+    @classmethod
+    def generate_password(cls,length):
+        """
+        this method uses the string method to generate a password of random  letters
+        the length of the password is determined by the length passed in the function's parameter 
+        Args:
+            the desired password length
+        """
+        letters =  string.ascii_lowercase
+        return "".join(random.choice(letters) for i in range(length))
 

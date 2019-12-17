@@ -96,6 +96,17 @@ class  TestCredentials(unittest.TestCase):
         
         self.assertEqual(Credentials.credential_display(),Credentials.credentials_list)
 
+    def test_generate_password(self):
+        """
+        Test to confirm that the password we are generating ahs the desired length
+        """
+        self.new_credentials.save_credentials()
+        generated_password = Credentials.generate_password(12)
+        test_credential = Credentials("facebook","t.ngugi",generated_password)
+        test_credential.save_credentials()
+
+        self.assertEqual(len(test_credential.app_password),12)
+
 
         
 

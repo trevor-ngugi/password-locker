@@ -48,3 +48,5 @@ def display_credentials():
 
 def authenticate_user(username,password):
     return User.user_auth(username,password)
+
+    
