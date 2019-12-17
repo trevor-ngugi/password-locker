@@ -198,5 +198,25 @@ def main():
                             print(f"CREDENTIALS FOR {platform_creds.app_username} ")
                         else:
                             print("The credential does not exist") 
+
+                    elif key_word == "ex":
+                        print(f"Have a nice day {login_name}")
+                        print("_"*50)
+                        break
+                
+                else:
+                    print("Oops, you entered the wrong username/pin, we have to do this again :(")
+                    print("\n")
+                    break
+
+        elif shortCode == "xx":
+            print("GOODBYE")
+            break
+        
+        else:
+            print("You entered an unknown short code, please try again")
+
+if __name__ == '__main__':
+    main()
                     
 
